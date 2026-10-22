@@ -19,7 +19,7 @@ jobs:
         run: pip install pylint flake8
 
       - name: Run Flake8 (PEP 8)
-        run: flake8 python
+        run: flake8 student.py
 
       - name: Run Pylint (must be 10/10)
-        run: pylint python --fail-under=10
+        run: pylint student.py --fail-under=10
