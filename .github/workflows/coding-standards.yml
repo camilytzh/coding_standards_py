@@ -1,0 +1,25 @@
+name: Coding Standards
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  python:
+    name: Python - Pylint and Flake8
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install linters
+        run: pip install pylint flake8
+
+      - name: Run Flake8 (PEP 8)
+        run: flake8 student.py
+
+      - name: Run Pylint (must be 10/10)
+        run: pylint student.py --fail-under=10
